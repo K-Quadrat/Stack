@@ -12,8 +12,6 @@ public class Stack {
         pointer = -1;
     }
     
-    public static void getpop(){
-    }
 
 
     public static void main(String[] args) throws IOException {
@@ -25,10 +23,10 @@ public class Stack {
         String eingabe = br.readLine();
         int eingelesen = Integer.parseInt(eingabe);
        
-        Stack meinStack = new Stack(eingelesen);
+        Stack StackObjekt = new Stack(eingelesen);
         
         int ende = 0;
-        while(ende==1){
+        //while(ende == 0){
         System.out.print("1 für push \n 2 für pop \n  3 für print \n 9 für Ende \n");
         String eingabe2 = br.readLine();
         int menue = Integer.parseInt(eingabe);
@@ -36,20 +34,23 @@ public class Stack {
         switch(menue){
             
             case 1:
-                //push();
+                StackObjekt.push(55);
+                System.out.println("Push");
                 break;
                 
             case 2:
-                getpop();
+                StackObjekt.pop();
+                
                 break;
                 
             case 3:
-                //print();
+                StackObjekt.print();
                 break;
                 
             case 9:
                 ende = 1;
-        }
+                break;
+        //}
         }
         
         
