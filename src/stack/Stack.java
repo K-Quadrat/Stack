@@ -1,13 +1,45 @@
 package stack;
+import java.io.*;
 
 public class Stack {
-    int pointer = -1;
-    int stack[] = new int[50];
+    int pointer;
+    int stack[];
 
 
-    public static void main(String[] args) {
-        // TODO code application logic here
-        //Commit.2
+    
+    
+
+    public Stack(int laenge){
+        this.stack = new int [laenge];
+        this.pointer = -1;
+    }
+    
+
+    public static void main(String[] args) throws IOException {
+        
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        System.out.print("Bitte geben Sie die gewünschte Array Größe an: \n");
+        String eingabe = br.readLine();
+        int eingelesen = Integer.parseInt(eingabe);
+       
+        Stack meinStack = new Stack(eingelesen);
+        
+        
+        
+        System.out.print("1 für push \n 2 für pop \n  3für print \n");
+        String eingabe2 = br.readLine();
+        int menue = Integer.parseInt(eingabe);
+        switch(menue){
+            
+            case 1:
+                print();
+                break;
+        }
+        
+        
+        
+        
     }
     
     
@@ -37,7 +69,7 @@ public class Stack {
         }
     }
     
-    
+  
     
     
 }
