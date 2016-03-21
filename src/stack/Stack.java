@@ -4,19 +4,21 @@ import java.io.*;
 public class Stack {
     int pointer;
     int stack[];
-
-
     
     
 
     public Stack(int laenge){
-        this.stack = new int [laenge];
-        this.pointer = -1;
+        stack = new int [laenge];
+        pointer = -1;
     }
     
+    public static void getpop(){
+    }
+
 
     public static void main(String[] args) throws IOException {
         
+        //try {}catch (Exception e);
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         System.out.print("Bitte geben Sie die gewünschte Array Größe an: \n");
@@ -25,18 +27,30 @@ public class Stack {
        
         Stack meinStack = new Stack(eingelesen);
         
-        
-        
-        System.out.print("1 für push \n 2 für pop \n  3für print \n");
+        int ende = 0;
+        while(ende==1){
+        System.out.print("1 für push \n 2 für pop \n  3 für print \n 9 für Ende \n");
         String eingabe2 = br.readLine();
         int menue = Integer.parseInt(eingabe);
+                
         switch(menue){
             
             case 1:
-                print();
+                //push();
                 break;
+                
+            case 2:
+                getpop();
+                break;
+                
+            case 3:
+                //print();
+                break;
+                
+            case 9:
+                ende = 1;
         }
-        
+        }
         
         
         
