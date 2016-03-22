@@ -1,5 +1,6 @@
 package stack;
 import java.io.*;
+import java.util.Scanner;
 
 public class Stack {
     int pointer;
@@ -17,21 +18,18 @@ public class Stack {
     public static void main(String[] args) throws IOException {
         
         //try {}catch (Exception e);
-        InputStreamReader isr = new InputStreamReader(System.in);
-        BufferedReader br = new BufferedReader(isr);
         System.out.print("Bitte geben Sie die gewünschte Array Größe an: \n");
-        String eingabe = br.readLine();
-        int eingelesen = Integer.parseInt(eingabe);
-       
-        Stack StackObjekt = new Stack(eingelesen);
+        Scanner in = new Scanner (System.in);
+        int inputA = in.nextInt();
+        Stack StackObjekt = new Stack(inputA);
         
         int ende = 0;
-        //while(ende == 0){
-        System.out.print("1 für push \n 2 für pop \n  3 für print \n 9 für Ende \n");
-        String eingabe2 = br.readLine();
-        int menue = Integer.parseInt(eingabe);
-                
-        switch(menue){
+        while(ende == 0){
+        System.out.print("1 für push \n2 für pop \n3 für print \n9 für Ende \n");
+        int inputB = in.nextInt();
+  
+        
+        switch(inputB){
             
             case 1:
                 StackObjekt.push(55);
@@ -40,17 +38,21 @@ public class Stack {
                 
             case 2:
                 StackObjekt.pop();
-                
+                System.out.println("Pop");
                 break;
                 
             case 3:
                 StackObjekt.print();
+                System.out.println("Print");
                 break;
                 
             case 9:
                 ende = 1;
                 break;
-        //}
+                
+            default:
+                System.out.println("Taste ohne Funktion! \n");
+        }
         }
         
         
