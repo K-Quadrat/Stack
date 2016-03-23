@@ -3,15 +3,17 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Stack {
-    int pointer;
-    int stack[];
+    private int pointer;
+    private int[] stack;
     
     
 
     public Stack(int laenge){
-        stack = new int [laenge];
-        pointer = -1;
+        this.stack = new int [laenge];
+        this.pointer = -1;
     }
+    
+    
     
 
 
@@ -20,32 +22,36 @@ public class Stack {
         //try {}catch (Exception e);
         System.out.print("Bitte geben Sie die gewünschte Array Größe an: \n");
         Scanner in = new Scanner (System.in);
-        int inputA = in.nextInt();
-        Stack StackObjekt = new Stack(inputA);
+        int inputArrayLaenge = in.nextInt();
+        Stack MeinStackObjekt = new Stack(inputArrayLaenge);
         
         int ende = 0;
         while(ende == 0){
         System.out.print("1 für push \n2 für pop \n3 für print \n9 für Ende \n");
-        int inputB = in.nextInt();
+        int inputMenue = in.nextInt();
   
         
-        switch(inputB){
+        switch(inputMenue){
             
             case 1:
                 System.out.println("Zahl eingeben! Wird auf den Stack geschrieben.\n");
-                int inputC = in.nextInt();
-                StackObjekt.push(inputC);
-                System.out.println("Speichern Erfolgreich.\n");
+                int inputPush = in.nextInt();
+                MeinStackObjekt.push(inputPush);
+                System.out.println("Push Operation ausgeführt.\n");
                 break;
                 
             case 2:
-                StackObjekt.pop();
-                System.out.println("Pop");
+                int rueckgabeWertPop = MeinStackObjekt.pop();
+                if (rueckgabeWertPop == -1){
+                    System.out.println("Stack ist leer!");
+                }
+                else {
+                System.out.println("Pop ausgeführt Pop = " + rueckgabeWertPop);
+                }
                 break;
                 
             case 3:
-                StackObjekt.print();
-                System.out.println("Print");
+                MeinStackObjekt.print();
                 break;
                 
             case 9:
@@ -63,9 +69,10 @@ public class Stack {
     
     
     public int push(int wert){
-        if (pointer < 50){
-            stack[pointer+1] = wert;
-            pointer = pointer+1;
+        if (pointer < stack.length){
+            pointer++;
+            stack[pointer] = wert;
+            System.out.println("In der Push Methode" +pointer +wert);
             return 0;           
         } else
             return -1;
@@ -76,15 +83,15 @@ public class Stack {
         if (pointer >= 0){
             wert = stack[pointer];
             stack[pointer] = 0;
-            pointer = pointer-1;
+            pointer--;
             return wert;
         } else
             return -1;
     }
     
     public void print(){
-        for (int i=0; i>=pointer; i++){
-            System.out.println("stack[i]");
+        for (int i=0; i<=pointer; i++){
+            System.out.println(stack[i]);
         }
     }
     
