@@ -32,8 +32,10 @@ public class Stack {
         switch(inputB){
             
             case 1:
-                StackObjekt.push(55);
-                System.out.println("Push");
+                System.out.println("Zahl eingeben! Wird auf den Stack geschrieben.\n");
+                int inputC = in.nextInt();
+                StackObjekt.push(inputC);
+                System.out.println("Speichern Erfolgreich.\n");
                 break;
                 
             case 2:
@@ -81,7 +83,7 @@ public class Stack {
     }
     
     public void print(){
-        for (int i=-1; i>=pointer; i++){
+        for (int i=0; i>=pointer; i++){
             System.out.println("stack[i]");
         }
     }
