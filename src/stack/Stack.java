@@ -4,8 +4,25 @@ import java.util.Scanner;
 
 public class Stack {
     private int pointer;
-    private int[] stack;
+    int[] stack;
     
+    //Getter und Setter
+    public int getPointer(){
+        return pointer;
+    }
+    
+    public void setPointer(int pointer){
+        this.pointer=pointer;
+    }
+    /**
+    public int [] getStack(){
+        return stack;
+    }
+    
+    public void setStack(int[] stack ){
+        this.stack=stack;
+    }
+    */
     
 
     public Stack(int laenge){
@@ -20,14 +37,20 @@ public class Stack {
     public static void main(String[] args) throws IOException {
         
         //try {}catch (Exception e);
+        
         System.out.print("Bitte geben Sie die gewünschte Array Größe an: \n");
         Scanner in = new Scanner (System.in);
         int inputArrayLaenge = in.nextInt();
+        /**
+         * Aufgabe 1
         Stack MeinStackObjekt = new Stack(inputArrayLaenge);
+        */
+        
+        Zusatzoperationen MeinStackObjekt = new Zusatzoperationen(inputArrayLaenge, 10);
         
         int ende = 0;
         while(ende == 0){
-        System.out.print("1 für push \n2 für pop \n3 für print \n9 für Ende \n");
+        System.out.print("1 für push \n2 für pop \n3 für print \n4 für push Array \n9 für Ende \n");
         int inputMenue = in.nextInt();
   
         
@@ -54,6 +77,19 @@ public class Stack {
                 MeinStackObjekt.print();
                 break;
                 
+            case 4:
+                int[] Array;
+                System.out.println("Anzahl der zu Speichernden Werte.\n");
+                int inputArrayPush = in.nextInt();
+                Array = new int[inputArrayPush];
+                for (int i=0; i<inputArrayPush; i++){
+                    System.out.println(i+1+". Zahl eingeben.\n");
+                    int inputArrayPush2 = in.nextInt();
+                    Array[i] = inputArrayPush2;
+                }
+                MeinStackObjekt.push(Array);
+                break;
+                
             case 9:
                 ende = 1;
                 break;
@@ -72,7 +108,7 @@ public class Stack {
         if (pointer < stack.length){
             pointer++;
             stack[pointer] = wert;
-            System.out.println("In der Push Methode" +pointer +wert);
+            //System.out.println("In der Push Methode" +pointer +wert);
             return 0;           
         } else
             return -1;
