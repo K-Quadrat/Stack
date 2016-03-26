@@ -27,17 +27,15 @@ public class Zusatzoperationen extends Stack{
     public int push(int[] werte){
 
         if ((getPointer()+werte.length) < stack.length){
-            setPointer(getPointer()+1);
             for (int i=0; i<werte.length; i++){
-                stack[getPointer()+i] = werte[i];
+                push(werte[i]);
             }
-            //System.out.println("In der Push Methode" +pointer +wert);
             return 0;           
         } else
             return -1;  
 }
-
-
-
+    
+    
+    
     
 }
